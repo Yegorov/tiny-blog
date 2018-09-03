@@ -1,17 +1,26 @@
+dist: xenial
 language: ruby
 rvm:
   - 2.5.1
-sudo: true
-services:
-  - postgresql
-node_js:
-  - 10.7.0
+addons:
+  postgresql: "10"
+  apt:
+    packages:
+      - postgresql-10
+      - postgresql-client-10
+env:
+  global:
+    - DB_USER=postgres
+    - DB_PASS=''
 bundler_args: --without production
-before_script:
+before_install:
   - yarn install
-  - sudo -u postgres psql -c "create role 'tiny_blog' with login createdb password 'tiny_blog';"
-  - sudo -u postgres psql -c "create database 'tiny_blog_test';"
-  - sudo -u postgres psql -c "grant all privileges on database 'tiny_blog_test' to 'tiny_blog';"
+  - sudo sed -i 's/port = 5433/port = 5432/' /etc/postgresql/10/main/postgresql.conf
+  # Use 9.6 auth config:
+  - sudo cp /etc/postgresql/{9.6,10}/main/pg_hba.conf
+  - sudo service postgresql restart
+  - psql -c 'create database tiny_blog_test;' -U postgres
+before_script:
   - bundle exec rails db:setup
 script:
   - bundle exec rspec
