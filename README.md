@@ -1,24 +1,7 @@
-# README
+[![Build Status](https://travis-ci.org/Yegorov/tiny-blog.svg?branch=master)](https://travis-ci.org/Yegorov/tiny-blog)
+[![CircleCI](https://circleci.com/gh/Yegorov/tiny-blog.svg?style=svg)](https://circleci.com/gh/Yegorov/tiny-blog)
+# Tiny Blog
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## License
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+License (MIT) Copyright (c) 2018 Yegorov A. yegorov0725@yandex.ru
