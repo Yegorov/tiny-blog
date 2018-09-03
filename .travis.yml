@@ -1,9 +1,17 @@
 language: ruby
 rvm:
   - 2.5.1
+sudo: true
 services:
   - postgresql
+node_js:
+  - 10.7.0
 bundler_args: --without production
-script:
+before_script:
+  - yarn install
+  - sudo -u postgres psql -c "create role 'tiny_blog' with login createdb password 'tiny_blog';"
+  - sudo -u postgres psql -c "create database 'tiny_blog_test';"
+  - sudo -u postgres psql -c "grant all privileges on database 'tiny_blog_test' to 'tiny_blog';"
   - bundle exec rails db:setup
+script:
   - bundle exec rspec
