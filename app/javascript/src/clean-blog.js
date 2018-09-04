@@ -1,4 +1,4 @@
-$(document).ready(function() {
+$(document).on('ready turbolinks:load', function() {
   (function($) {
     "use strict"; // Start of use strict
 

@@ -6,12 +6,20 @@
 //
 // To reference this file, add <%= javascript_pack_tag 'application' %> to the appropriate
 // layout file, like app/views/layouts/application.html.erb
+import Turbolinks from 'turbolinks'
+import Rails from 'rails-ujs'
+
+Rails.start()
+window.Turbolinks = Turbolinks
+Turbolinks.start()
 
 import "bootstrap"
 import 'bootstrap/dist/css/bootstrap'
 import "font-awesome/css/font-awesome"
 
+
 import "../src/clean-blog"
 
 import "../src/application.css"
 import "../src/images"
+

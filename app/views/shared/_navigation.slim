@@ -8,14 +8,14 @@ nav#mainNav.navbar.navbar-expand-lg.navbar-light.fixed-top
     #navbarResponsive.collapse.navbar-collapse
       ul.navbar-nav.ml-auto
         li.nav-item
-          a.nav-link[href="index.html"]
+          a.nav-link[href="#{root_path}"]
             | Home
         li.nav-item
-          a.nav-link[href="about.html"]
+          a.nav-link[href="#{page_path(1)}"]
             | About
         li.nav-item
-          a.nav-link[href="post.html"]
+          a.nav-link[href="#{page_path(2)}"]
             | Sample Post
         li.nav-item
-          a.nav-link[href="contact.html"]
+          a.nav-link[href="#{page_path(3)}"]
             | Contact
