@@ -1,0 +1,5 @@
+import 'images/home-bg'
+import 'images/about-bg'
+import 'images/contact-bg'
+import 'images/post-bg'
+import 'images/post-sample-image'

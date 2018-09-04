@@ -17,6 +17,10 @@ require "sprockets/railtie"
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
+SETTING = {
+  :blog_name => 'Clean Blog - Start Bootstrap Theme'
+}
+
 module TinyBlog
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
@@ -29,5 +33,8 @@ module TinyBlog
 
     # Don't generate system test files.
     # config.generators.system_tests = nil
+    config.generators do |g|
+      g.test_framework :rspec, controller_specs: false
+    end
   end
 end
