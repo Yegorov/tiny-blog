@@ -6,5 +6,6 @@ import javascript from 'highlight.js/lib/languages/javascript'
 export default function() {
   hljs.registerLanguage('javascript', javascript);
   //hljs.initHighlighting.called = false;
-  hljs.initHighlighting();
+  //hljs.initHighlighting();
+  $('pre code').each(function(i, e) { hljs.highlightBlock(e)} );
 }

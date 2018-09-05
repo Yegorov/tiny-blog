@@ -1,4 +1,7 @@
-- if params[:controller] == "posts"
-  = render 'shared/post_header'
-- else
-  = render "shared/page_header"
+header.masthead[style='background-image: url("#{image}")']
+  .overlay
+  .container
+    .row
+      .col-lg-8.col-md-10.mx-auto
+        /= capture { yield }
+        = yield

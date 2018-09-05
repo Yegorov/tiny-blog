@@ -1,9 +1,6 @@
-- content_for :image
-  = asset_pack_path('images/about-bg.jpg')
-- content_for :heading
-  = "About Me"
-- content_for :subheading
-  = "This is what I do."
+= render "header", image: asset_pack_path('images/about-bg.jpg'),
+  heading: "About Me",
+  subheading: "This is what I do."
 
 .container
   .row

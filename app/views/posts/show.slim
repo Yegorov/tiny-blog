@@ -1,13 +1,9 @@
-- content_for :image
-  = asset_pack_path('images/post-bg.jpg')
-- content_for :heading
-  = "Man must explore, and this is exploration at its greatest"
-- content_for :subheading
-  = "Problems look mighty small from 150 miles up"
-- content_for :author
-  = "Admin"
-- content_for :date
-  = "04.09.2018"
+= render "header", image: asset_pack_path('images/post-bg.jpg'),
+  heading: "Man must explore, and this is exploration at its greatest",
+  subheading: "Problems look mighty small from 150 miles up",
+  author: "Admin",
+  date: "04.09.2018"
+
 article
   .container
     .row

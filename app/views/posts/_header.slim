@@ -1,0 +1,13 @@
+= render "shared/header", image: image
+  .post-heading
+    h1
+       = heading.presence || "Man must explore, and this is exploration at its greatest"
+    h2.subheading
+      = subheading.presence || "Problems look mighty small from 150 miles up"
+    span.meta
+      | Posted by
+      '
+      a[href="#"]
+        = author.presence ||  "Start Bootstrap"
+      '
+      = date.presence ||  "on August 24, 2018"

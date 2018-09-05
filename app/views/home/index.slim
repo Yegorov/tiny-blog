@@ -1,15 +1,12 @@
-- content_for :image
-  = asset_pack_path('images/home-bg.jpg')
-- content_for :heading
-  = "Clean Blog"
-- content_for :subheading
-  = "A Blog Theme by Start Bootstrap"
+= render "pages/header", image: asset_pack_path('images/home-bg.jpg'),
+  heading: "Clean Blog",
+  subheading: "A Blog Theme by Start Bootstrap"
 
 .container
   .row
     .col-lg-8.col-md-10.mx-auto
       .post-preview
-        a[href="post.html"]
+        a[href=post_path(1)]
           h2.post-title
             |  Man must explore, and this is exploration at its greatest
           h3.post-subtitle
@@ -22,7 +19,7 @@
           |  on September 24, 2018
       hr
       .post-preview
-        a[href="post.html"]
+        a[href=post_path(1)]
           h2.post-title
             |  I believe every human has a finite number of heartbeats. I don't intend to waste any of mine.
         p.post-meta
@@ -33,7 +30,7 @@
           |  on September 18, 2018
       hr
       .post-preview
-        a[href="post.html"]
+        a[href=post_path(1)]
           h2.post-title
             |  Science has not yet mastered prophecy
           h3.post-subtitle
@@ -46,7 +43,7 @@
           |  on August 24, 2018
       hr
       .post-preview
-        a[href="post.html"]
+        a[href=post_path(1)]
           h2.post-title
             |  Failure is not an option
           h3.post-subtitle
