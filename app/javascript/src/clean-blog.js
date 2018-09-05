@@ -1,5 +1,10 @@
+import hljsInit from './highlight.js'
+
+
 $(document).on('ready turbolinks:load', function() {
+
   (function($) {
+
     "use strict"; // Start of use strict
 
     // Floating label headings for the contact form
@@ -41,3 +46,5 @@ $(document).on('ready turbolinks:load', function() {
 
   })(jQuery); // End of use strict
 })
+
+$(document).on('ready turbolinks:load', hljsInit);

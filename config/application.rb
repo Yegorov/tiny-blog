@@ -34,9 +34,11 @@ module TinyBlog
     # Don't generate system test files.
     # config.generators.system_tests = nil
 
-    # disable generate sprockets
+    # disable generate sprockets, and controller specs
     config.generators do |g|
       g.test_framework :rspec, controller_specs: false
+      g.stylesheets false
+      g.javascripts false
     end
   end
 end

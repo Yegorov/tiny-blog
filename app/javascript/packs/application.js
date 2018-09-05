@@ -13,12 +13,6 @@ Rails.start()
 window.Turbolinks = Turbolinks
 Turbolinks.start()
 
-//import 'highlight.js/styles/monokai'
-import 'highlight.js/styles/xcode'
-import hljs from 'highlight.js/lib/highlight';
-import javascript from 'highlight.js/lib/languages/javascript';
-hljs.registerLanguage('javascript', javascript);
-hljs.initHighlightingOnLoad()
 
 import "bootstrap"
 import 'bootstrap/dist/css/bootstrap'
