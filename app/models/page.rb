@@ -30,17 +30,13 @@ class Page < ApplicationRecord
   belongs_to :author, class_name: "User"
 
 
-  def normalize_friendly_id(text)
-      text.to_slug.normalize! :transliterations => [:russian, :latin]
-  end
-
   private
 
   def slug_candidates
     [
       :title,
-      # [:title, :subtitle],
-      # [:title, :subtitle, :id]
+      [:title, :subtitle],
+      [:title, :subtitle, :id]
     ]
   end
 end
