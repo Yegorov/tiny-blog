@@ -9,17 +9,19 @@ require 'rspec/rails'
 
 require 'capybara/rspec'
 
-# Coveralls & Codecov
-require 'simplecov'
-require 'codecov'
-require 'coveralls'
+if ENV['CI']
+  # Coveralls & Codecov
+  require 'simplecov'
+  require 'codecov'
+  require 'coveralls'
 
-SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter[
-  SimpleCov::Formatter::Codecov,
-  Coveralls::SimpleCov::Formatter
-]
+  SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter[
+    SimpleCov::Formatter::Codecov,
+    Coveralls::SimpleCov::Formatter
+  ]
 
-SimpleCov.start
+  SimpleCov.start
+end
 # Requires supporting ruby files with custom matchers and macros, etc, in
 # spec/support/ and its subdirectories. Files matching `spec/**/*_spec.rb` are
 # run as spec files by default. This means that files in spec/support that end

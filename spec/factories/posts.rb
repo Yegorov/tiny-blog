@@ -24,19 +24,11 @@
 #  fk_rails_...  (author_id => users.id)
 #
 
-class Post < ApplicationRecord
-  extend FriendlyId
-  friendly_id :slug_candidates, use: [:finders, :slugged]
-
-  belongs_to :author, class_name: "User"
-
-  private
-
-  def slug_candidates
-    [
-      :title,
-      [:title, :subtitle],
-      [:title, :subtitle, :id]
-    ]
+FactoryBot.define do
+  factory :post do
+    title { Faker::Lorem.sentence }
+    subtitle { Faker::Lorem.sentence }
+    date { "2018-09-05 15:31:53" }
+    content { Faker::Lorem.paragraphs(10).join('\n<br/>\n') }
   end
 end

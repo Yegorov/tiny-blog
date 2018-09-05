@@ -23,24 +23,10 @@
 #  fk_rails_...  (author_id => users.id)
 #
 
-class Page < ApplicationRecord
-  extend FriendlyId
-  friendly_id :slug_candidates, use: [:finders, :slugged]
-
-  belongs_to :author, class_name: "User"
-
-
-  def normalize_friendly_id(text)
-      text.to_slug.normalize! :transliterations => [:russian, :latin]
-  end
-
-  private
-
-  def slug_candidates
-    [
-      :title,
-      # [:title, :subtitle],
-      # [:title, :subtitle, :id]
-    ]
+FactoryBot.define do
+  factory :page do
+    title { Faker::Lorem.sentence }
+    subtitle { Faker::Lorem.sentence }
+    content  { Faker::Lorem.paragraphs(10).join('\n<br/>\n') }
   end
 end

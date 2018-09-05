@@ -24,19 +24,8 @@
 #  fk_rails_...  (author_id => users.id)
 #
 
-class Post < ApplicationRecord
-  extend FriendlyId
-  friendly_id :slug_candidates, use: [:finders, :slugged]
+require 'rails_helper'
 
-  belongs_to :author, class_name: "User"
-
-  private
-
-  def slug_candidates
-    [
-      :title,
-      [:title, :subtitle],
-      [:title, :subtitle, :id]
-    ]
-  end
+RSpec.describe Post, type: :model do
+  pending "add some examples to (or delete) #{__FILE__}"
 end
