@@ -19,7 +19,7 @@ import 'bootstrap/dist/css/bootstrap'
 import "font-awesome/css/font-awesome"
 
 
-import "../src/clean-blog"
+import "../src/onload"
 
 import "../src/application.css"
 import "../src/images"

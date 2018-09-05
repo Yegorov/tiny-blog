@@ -1,8 +1,4 @@
-import hljsInit from './highlight.js'
-
-
-$(document).on('ready turbolinks:load', function() {
-
+export default function() {
   (function($) {
 
     "use strict"; // Start of use strict
@@ -45,6 +41,4 @@ $(document).on('ready turbolinks:load', function() {
     }
 
   })(jQuery); // End of use strict
-})
-
-$(document).on('ready turbolinks:load', hljsInit);
+}
