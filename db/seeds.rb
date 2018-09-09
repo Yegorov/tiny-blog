@@ -6,9 +6,22 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+# before run db:seed, remove /storage folder
+
 user = FactoryBot.create(:user, name: "Artem Yegorov")
 
-FactoryBot.create(:post, with_featured_image, author: user)
-FactoryBot.create(:post, with_featured_image, filename: "pexels-photo-314380-large.jpeg", author: user)
+FactoryBot.create(
+  :post,
+  :with_featured_image,
+  :with_html_content,
+  author: user
+)
+FactoryBot.create(
+  :post,
+  :with_featured_image,
+  :with_html_content,
+  filename: "pexels-photo-314380-large.jpeg",
+  author: user
+)
 
-FactoryBot.create_list(:post, 25, author: user)
+FactoryBot.create_list(:post, 5, author: user)

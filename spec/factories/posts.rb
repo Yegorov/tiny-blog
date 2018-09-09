@@ -35,7 +35,7 @@ FactoryBot.define do
     reading_time_estimation { 2.minute.value }
 
 
-    trait :with_feature_image do
+    trait :with_featured_image do
       transient do
         filename { "pexels-photo-905877-medium.jpeg" }
       end
@@ -46,7 +46,7 @@ FactoryBot.define do
       end
     end
 
-    trait :with_feature_image_without_load do
+    trait :with_featured_image_without_load do
       after(:create) do |instance|
         attach_name = "featured_image"
         # https://github.com/rails/rails/blob/fc5dd0b85189811062c85520fd70de8389b55aeb/activestorage/app/models/active_storage/blob.rb#L47
@@ -64,6 +64,21 @@ FactoryBot.define do
           record_type: instance.model_name.name,
           record_id: instance.id,
           blob: blob)
+      end
+    end
+
+    trait :with_html_content do
+      content do
+        locals = {}
+        t = Slim::Template.new do
+          File.read(Rails.root.join("spec/fixtures/files/article_body.html.slim"))
+        end
+        o = Object.new
+        o.singleton_class.class_eval do
+          include Webpacker::Helper
+          include ActionView::Helpers::AssetUrlHelper
+        end
+        t.render(o, locals)
       end
     end
 

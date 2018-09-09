@@ -1,13 +1,8 @@
-= render "shared/header", image: image
+= render "shared/header", image: post.featured_image
   .post-heading
     h1
-       = heading.presence || "Man must explore, and this is exploration at its greatest"
+       = post.title
     h2.subheading
-      = subheading.presence || "Problems look mighty small from 150 miles up"
+      = post.subtitle
     span.meta
-      | Posted by
-      '
-      a[href="#"]
-        = author.presence ||  "Start Bootstrap"
-      '
-      = date.presence ||  "on August 24, 2018"
+      = post.clean_blog_post_meta

@@ -5,16 +5,12 @@
 .container
   .row
     .col-lg-8.col-md-10.mx-auto
-      - 10.times.each
-        = render "posts/preview", post_path: post_path(1),
-          title: "Man must explore, and this is exploration at its greatest",
-          subtitle: "Problems look mighty small from 150 miles up",
-          author: "Start Bootstrap",
-          date: "on September 24, 2018"
+      - @posts.each do |post|
+        = render "posts/preview", post: ViewPostPreview.new(post: post)
 
       .clearfix
         a.btn.btn-primary.float-left[href="#"]
-          | Newly Posts →
+          | ← Newly Posts
         a.btn.btn-primary.float-right[href="#"]
           | Older Posts →
 hr
