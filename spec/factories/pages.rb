@@ -29,6 +29,8 @@ FactoryBot.define do
     subtitle { Faker::Lorem.sentence }
     content  { Faker::Lorem.paragraphs(10).join('\n<br/>\n') }
 
+    association :author, factory: :user
+
     trait :disable do
       enabled { false }
     end

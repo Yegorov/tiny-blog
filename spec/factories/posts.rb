@@ -34,6 +34,11 @@ FactoryBot.define do
     content { Faker::Lorem.paragraphs(10).join("\n") }
     reading_time_estimation { 2.minute.value }
 
+    association :author, factory: :user
+    # before(:create) do |instance|
+    #   instance.author = FactoryBot.create(:user)
+    # end
+
 
     trait :with_featured_image do
       transient do
