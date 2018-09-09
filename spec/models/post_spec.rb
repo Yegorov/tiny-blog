@@ -25,7 +25,8 @@
 #
 
 require 'rails_helper'
+require 'shared/generate_slugs'
 
 RSpec.describe Post, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  include_examples 'Generate slugs', Post
 end

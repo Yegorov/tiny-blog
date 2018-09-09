@@ -7,6 +7,7 @@ class CreatePosts < ActiveRecord::Migration[5.2]
       t.references :author
       t.datetime :date
       t.text :content
+      t.integer :reading_time_estimation
       t.boolean :enabled, default: true
 
       t.timestamps
