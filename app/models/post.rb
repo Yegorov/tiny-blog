@@ -2,16 +2,17 @@
 #
 # Table name: posts
 #
-#  id         :bigint(8)        not null, primary key
-#  content    :text
-#  date       :datetime
-#  enabled    :boolean          default(TRUE)
-#  slug       :string           not null
-#  subtitle   :string
-#  title      :string           not null
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
-#  author_id  :bigint(8)
+#  id                      :bigint(8)        not null, primary key
+#  content                 :text
+#  date                    :datetime
+#  enabled                 :boolean          default(TRUE)
+#  reading_time_estimation :integer
+#  slug                    :string           not null
+#  subtitle                :string
+#  title                   :string           not null
+#  created_at              :datetime         not null
+#  updated_at              :datetime         not null
+#  author_id               :bigint(8)
 #
 # Indexes
 #

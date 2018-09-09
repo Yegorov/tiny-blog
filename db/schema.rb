@@ -69,6 +69,7 @@ ActiveRecord::Schema.define(version: 2018_09_08_210944) do
     t.bigint "author_id"
     t.datetime "date"
     t.text "content"
+    t.integer "reading_time_estimation"
     t.boolean "enabled", default: true
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

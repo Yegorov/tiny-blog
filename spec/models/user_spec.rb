@@ -11,5 +11,16 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe "with posts" do
+    let(:user) { FactoryBot.create(:user, ) }
+    it "have posts" do
+      posts = FactoryBot.create_list(:post, 10, author: user)
+
+      expect(user.posts.count).to eq(10)
+    end
+
+    it "have not posts" do
+      expect(user.posts.count).to eq(0)
+    end
+  end
 end

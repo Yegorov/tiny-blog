@@ -2,16 +2,17 @@
 #
 # Table name: posts
 #
-#  id         :bigint(8)        not null, primary key
-#  content    :text
-#  date       :datetime
-#  enabled    :boolean          default(TRUE)
-#  slug       :string           not null
-#  subtitle   :string
-#  title      :string           not null
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
-#  author_id  :bigint(8)
+#  id                      :bigint(8)        not null, primary key
+#  content                 :text
+#  date                    :datetime
+#  enabled                 :boolean          default(TRUE)
+#  reading_time_estimation :integer
+#  slug                    :string           not null
+#  subtitle                :string
+#  title                   :string           not null
+#  created_at              :datetime         not null
+#  updated_at              :datetime         not null
+#  author_id               :bigint(8)
 #
 # Indexes
 #
@@ -25,10 +26,47 @@
 #
 
 FactoryBot.define do
+
   factory :post do
     title { Faker::Lorem.sentence }
     subtitle { Faker::Lorem.sentence }
-    date { "2018-09-05 15:31:53" }
-    content { Faker::Lorem.paragraphs(10).join('\n<br/>\n') }
+    date { Time.zone.now }
+    content { Faker::Lorem.paragraphs(10).join("\n") }
+    reading_time_estimation { 2.minute.value }
+
+
+    trait :with_feature_image do
+      transient do
+        filename { "pexels-photo-905877-medium.jpeg" }
+      end
+      after(:create) do |instance, evaluator|
+        instance.featured_image.attach(
+          io: File.open(Rails.root.join("spec/fixtures/files/#{evaluator.filename}")),
+          filename: evaluator.filename)
+      end
+    end
+
+    trait :with_feature_image_without_load do
+      after(:create) do |instance|
+        attach_name = "featured_image"
+        # https://github.com/rails/rails/blob/fc5dd0b85189811062c85520fd70de8389b55aeb/activestorage/app/models/active_storage/blob.rb#L47
+        blob_params = {
+          #key: "4ksH85oESittrzui6udUTJfC", # storage/4k/sH/4ksH85oESittrzui6udUTJfC
+          filename: "pexels-photo-905877-medium.jpeg",
+          content_type: "image/jpeg",
+          metadata: { "identified" => true, "analyzed" => true },
+          byte_size: 0.5.megabyte,
+          checksum: Digest::MD5.base64digest("pexels-photo-905877-medium.jpeg")
+        }
+        blob = ActiveStorage::Blob.new(blob_params)
+        ActiveStorage::Attachment.create!(
+          name: attach_name,
+          record_type: instance.model_name.name,
+          record_id: instance.id,
+          blob: blob)
+      end
+    end
+
+
   end
 end
