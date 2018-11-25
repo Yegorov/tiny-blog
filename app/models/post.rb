@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: posts
@@ -27,9 +29,9 @@
 
 class Post < ApplicationRecord
   extend FriendlyId
-  friendly_id :slug_candidates, use: [:finders, :slugged]
+  friendly_id :slug_candidates, use: %i[finders slugged]
 
-  belongs_to :author, class_name: "User"
+  belongs_to :author, class_name: 'User'
 
   has_one_attached :featured_image
 
@@ -38,8 +40,8 @@ class Post < ApplicationRecord
   def slug_candidates
     [
       :title,
-      [:title, :subtitle],
-      [:title, :subtitle, :id]
+      %i[title subtitle],
+      %i[title subtitle id]
     ]
   end
 end

@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
 class StaticPageController < ApplicationController
-  def contact
-  end
+  def contact; end
 end

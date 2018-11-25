@@ -61,6 +61,8 @@ group :development, :test do
   gem 'better_errors'
   gem 'binding_of_caller'
 
+
+  # CI
   gem 'pronto'
   gem 'pronto-rails_best_practices'
   gem 'pronto-rails_schema'
