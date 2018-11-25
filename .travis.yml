@@ -24,3 +24,4 @@ before_script:
   - bundle exec rails db:setup
 script:
   - bundle exec rspec
+  - pronto run -f github -c f544be195 --exit-code

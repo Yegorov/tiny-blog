@@ -59,6 +59,11 @@ group :development, :test do
   gem "better_errors"
   gem "binding_of_caller"
 
+  gem 'pronto'
+  gem 'pronto-rails_best_practices'
+  gem 'pronto-rails_schema'
+  gem 'pronto-rubocop'
+  gem 'pronto-slim_lint'
 end
 
 group :development do
