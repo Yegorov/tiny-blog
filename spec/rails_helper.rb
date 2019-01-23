@@ -15,10 +15,10 @@ if ENV['CI']
   require 'codecov'
   require 'coveralls'
 
-  SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter[
+  SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
     SimpleCov::Formatter::Codecov,
     Coveralls::SimpleCov::Formatter
-  ]
+  ])
 
   SimpleCov.start
 end
