@@ -42,6 +42,7 @@ gem 'devise'
 gem 'babosa'
 gem 'friendly_id', '~> 5.2.0'
 gem 'kaminari'
+gem 'loaf'
 gem 'slim-rails'
 
 group :development, :test do
