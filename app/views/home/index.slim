@@ -6,7 +6,7 @@
   .row
     .col-lg-8.col-md-10.mx-auto
       - @posts.each do |post|
-        = render "posts/preview", post: ViewPostPreview.new(post: post)
+        = render "posts/preview", post: PostPreviewPresenter.new(post, self)
 
       .clearfix
         a.btn.btn-primary.float-left[href="#"]

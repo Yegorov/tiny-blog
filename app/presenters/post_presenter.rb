@@ -1,12 +1,8 @@
 # frozen_string_literal: true
 
-class ViewPost < ViewPostPreview
-  include Rails.application.routes.url_helpers
-  include Webpacker::Helper
-  include ActionView::Helpers::AssetUrlHelper
-
+class PostPresenter < PostPreviewPresenter
   def content
-    model.content.presence ||
+    post.content.presence ||
       <<~HTML
         <p> This is example of js code</p>
         <pre>
@@ -40,12 +36,12 @@ class ViewPost < ViewPostPreview
   end
 
   def featured_image
-    if model.featured_image.attachment.present?
-      rails_blob_path(model.featured_image,
-                      disposition: 'attachment',
-                      only_path: true)
+    if post.featured_image.attachment.present?
+      h.rails_blob_path(post.featured_image,
+                        disposition: 'attachment',
+                        only_path: true)
     else
-      asset_pack_path('images/post-bg.jpg')
+      h.asset_pack_path('images/post-bg.jpg')
     end
   end
 end

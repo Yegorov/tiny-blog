@@ -2,7 +2,9 @@
 
 class PostsController < ApplicationController
   def show
-    @post = Post.with_attached_featured_image.find(params[:id])
-    @post = ViewPost.new(post: @post)
+    @post = Post.includes(:author)
+                .with_attached_featured_image
+                .find(params[:id])
+    @post = PostPresenter.new(@post, view_context)
   end
 end
