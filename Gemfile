@@ -41,7 +41,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'devise'
 gem 'babosa'
 gem 'friendly_id', '~> 5.2.0'
-
+gem 'kaminari'
 gem 'slim-rails'
 
 group :development, :test do

@@ -24,4 +24,4 @@ FactoryBot.create(
   author: user
 )
 
-FactoryBot.create_list(:post, 5, author: user)
+FactoryBot.create_list(:post, 15, author: user)

@@ -9,8 +9,8 @@
         = render "posts/preview", post: PostPreviewPresenter.new(post, self)
 
       .clearfix
-        a.btn.btn-primary.float-left[href="#"]
-          | ← Newly Posts
-        a.btn.btn-primary.float-right[href="#"]
-          | Older Posts →
+        /= paginate(@posts)
+        = link_to_prev_page @posts, '← Newly Posts', class: 'btn btn-primary float-left'
+
+        = link_to_next_page @posts, 'Older Posts →', class: 'btn btn-primary float-right'
 hr
