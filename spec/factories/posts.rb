@@ -31,7 +31,7 @@ FactoryBot.define do
     title { Faker::Lorem.sentence }
     subtitle { Faker::Lorem.sentence }
     date { Time.zone.now }
-    content { Faker::Lorem.paragraphs.join("\n") }
+    content { Faker::Lorem.paragraphs(number: 10).join("\n") }
     reading_time_estimation { 2.minute.value }
 
     association :author, factory: :user

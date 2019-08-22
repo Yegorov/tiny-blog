@@ -27,7 +27,7 @@ FactoryBot.define do
   factory :page do
     title { Faker::Lorem.sentence }
     subtitle { Faker::Lorem.sentence }
-    content  { Faker::Lorem.paragraphs(10).join('\n<br/>\n') }
+    content  { Faker::Lorem.paragraphs(number: 10).join("\n<br/>\n") }
 
     association :author, factory: :user
 
