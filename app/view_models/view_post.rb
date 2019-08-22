@@ -45,7 +45,7 @@ class ViewPost < ViewPostPreview
                       disposition: 'attachment',
                       only_path: true)
     else
-      asset_pack_path('images/post-bg.jpg')
+      asset_pack_path('media/images/post-bg.jpg')
     end
   end
 end
