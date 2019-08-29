@@ -2,6 +2,7 @@ dist: xenial
 language: ruby
 rvm:
   - 2.5.1
+  - 2.6.3
 addons:
   postgresql: "10"
   apt:
