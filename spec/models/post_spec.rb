@@ -29,5 +29,8 @@ require 'rails_helper'
 require 'shared/generate_slugs'
 
 RSpec.describe Post, type: :model do
-  include_examples 'Generate slugs', Post
+  include_examples 'Generate slugs', :title, :slug do
+    let(:user) { FactoryBot.build_stubbed(:user) }
+    let(:resource) { FactoryBot.build_stubbed(:post, author: user) }
+  end
 end

@@ -1,17 +1,25 @@
-RSpec.shared_examples 'Generate slugs' do |model_klass|
-  let(:user) { FactoryBot.build_stubbed(:user) }
-  let(:model) { FactoryBot.build_stubbed(model_klass.model_name.singular.to_sym,
-                author: user) }
-
-  it "must generate slug before valid" do
-    model.valid?
-    expect(model.slug).to be_present
+RSpec.shared_examples 'Generate slugs' do |field, field_slug|
+  before(:example) do
+    resource.valid?
   end
 
-  it "must generate correct cyrillic slug" do
-    model.title = "кирилические символы"
-    model.valid?
-    expect(model.slug).to be_present
-    expect(model.slug).to eq("kirilicheskie-simvoly")
+  it "must present slug" do
+    expect(resource[field_slug]).to be_present
+  end
+
+  context 'with cyrillic symbols' do
+    before(:example) do
+      resource[field] = "кирилические символы"
+      resource[field_slug] = nil
+      resource.valid?
+    end
+
+    it "must present slug" do
+      expect(resource[field_slug]).to be_present
+    end
+
+    it "must generate correct slug" do
+      expect(resource[field_slug]).to eq("kirilicheskie-simvoly")
+    end
   end
 end
