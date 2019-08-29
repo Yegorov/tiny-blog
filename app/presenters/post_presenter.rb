@@ -41,7 +41,7 @@ class PostPresenter < PostPreviewPresenter
                         disposition: 'attachment',
                         only_path: true)
     else
-      h.asset_pack_path('images/post-bg.jpg')
+      h.asset_pack_path('media/images/post-bg.jpg')
     end
   end
 end
