@@ -100,7 +100,7 @@ GEM
       nokogiri (~> 1.8)
     code_analyzer (0.4.8)
       sexp_processor
-    codecov (0.1.14)
+    codecov (0.1.16)
       json
       simplecov
       url
