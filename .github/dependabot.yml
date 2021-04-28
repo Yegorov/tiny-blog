@@ -1,0 +1,13 @@
+version: 2
+updates:
+- package-ecosystem: bundler
+  directory: "/"
+  schedule:
+    interval: monthly
+    time: "03:00"
+  open-pull-requests-limit: 10
+  ignore:
+  - dependency-name: codecov
+    versions:
+    - 0.2.15
+    - 0.4.2
